@@ -1,0 +1,9 @@
+@EndUserText.label: 'CoE Expose Service'
+define service YRAP_SRV_CoE_Details {
+  expose YRAP_C_Modules        as Modules;
+  expose YRAP_C_EMPLOYEE       as Employees;
+  expose YRAP_C_PROJECTS       as Projects;
+  expose YRAP_C_SKILLS         as Skills;
+  expose YRAP_C_CERTIFICATIONS as Certifications;
+  expose YRAP_C_UTILIZATIONS   as Utilizations;
+}

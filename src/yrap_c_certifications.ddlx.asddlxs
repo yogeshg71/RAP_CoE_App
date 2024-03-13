@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo:{typeName:'Certifications',
+typeNamePlural:'Certifications',
+title:{type:#STANDARD,label:'CertificationID',value:'Cid'}}
+
+annotate view YRAP_C_CERTIFICATIONS with
+
+{
+
+  // UI Identification Facet
+  @UI.facet:[{
+  id:'Certifications',
+  type:#IDENTIFICATION_REFERENCE,
+  purpose:#STANDARD,
+  label:'Certification Details',
+  position:10}]
+
+  @UI.lineItem: [{ position : 10  }]
+  @UI.identification:[{position:10,label:'UUID'}]
+  Uuid;
+  @UI.lineItem: [{ position : 20  }]
+  @UI.identification:[{position:20,label:'Certificaiton ID'}]
+  Cid;
+  @UI.hidden: true
+  Mid;
+  @UI.hidden: true
+  Eid;
+  @UI.lineItem: [{ position : 30 }]
+  @UI.identification:[{position:30,label:'Certification Code'}]
+  Ccode;
+  @UI.lineItem: [{ position : 40 }]
+  @UI.identification:[{position:40,label:'Description'}]
+  Descr;
+  /* Associations */
+  //_Employee;
+
+}

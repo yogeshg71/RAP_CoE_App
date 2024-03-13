@@ -1,0 +1,58 @@
+projection;
+strict ( 2 );
+
+define behavior for YRAP_C_Modules alias Modules
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _employees { create; }
+  use association _projects { create; }
+}
+
+define behavior for YRAP_C_EMPLOYEE alias Employees
+{
+  use update;
+  use delete;
+
+  use association _module;
+  use association _certifications { create; }
+  use association _Skills { create; }
+  use association _Utilizations { create; }
+}
+
+define behavior for YRAP_C_CERTIFICATIONS alias Certifications
+{
+  use update;
+  use delete;
+
+  use association _Employee;
+  use association _Modules;
+}
+
+define behavior for YRAP_C_SKILLS alias Skills
+{
+  use update;
+  use delete;
+
+  use association _Employee;
+  use association _Modules;
+}
+
+define behavior for YRAP_C_UTILIZATIONS alias Utilizations
+{
+  use update;
+  use delete;
+
+  use association _Employee;
+  use association _Modules;
+}
+
+define behavior for YRAP_C_PROJECTS alias Projects
+{
+  use update;
+  use delete;
+
+  use association _Modules;
+}

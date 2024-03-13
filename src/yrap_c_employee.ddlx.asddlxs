@@ -1,0 +1,94 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo:{typeName:'Employee',
+typeNamePlural:'Employees',
+title:{type:#STANDARD,label:'EmployeeID',value:'Name'}}
+
+annotate view YRAP_C_EMPLOYEE with
+{
+
+  // UI Identification Facet
+  @UI.facet:[{id:'Employee',
+  type:#IDENTIFICATION_REFERENCE,
+  purpose:#STANDARD,
+  label:'Employee Details',
+  position:10},
+   {
+  id:'Skills',
+  type:#LINEITEM_REFERENCE,
+  purpose:#STANDARD,
+  label:'Skill Details',
+  targetElement: '_Skills',
+  position:20},
+
+   {
+  id:'Utilization',
+  type:#LINEITEM_REFERENCE,
+  purpose:#STANDARD,
+  label:'Utilization Details',
+  targetElement: '_Utilizations',
+  position:30},
+
+    {
+  id:'Certifications',
+  type:#LINEITEM_REFERENCE,
+  purpose:#STANDARD,
+  label:'Certification Detail',
+  targetElement: '_certifications',
+  position:40}
+
+  ]
+
+
+  @UI.lineItem: [{ position : 10 }]
+  @UI.identification:[{position:10,label:'UUID'}]
+  Uuid;
+  @UI.lineItem: [{ position : 20 }]
+  @UI.identification:[{position:20,label:'Employee ID'}]
+  Eid;
+  @UI.hidden: true
+  Mid;
+  @UI.hidden: true
+  Pid;
+  @UI.hidden: true
+  Sid;
+  @UI.hidden: true
+  Cid;
+  @UI.hidden: true
+  Utid;
+  @UI.lineItem: [{ position : 30 }]
+  @UI.identification:[{position:30,label:'Employee Name'}]
+  Name;
+  @UI.lineItem: [{ position : 40 }]
+  @UI.identification:[{position:40,label:'Status'}]
+  Status;
+  @UI.lineItem: [{ position : 50 }]
+  @UI.identification:[{position:50,label:'Designation'}]
+  Designation;
+  @UI.lineItem: [{ position : 60 }]
+  @UI.identification:[{position:60,label:'Email'}]
+  Email;
+  @UI.lineItem: [{ position : 70 }]
+  @UI.identification:[{position:70,label:'Department'}]
+  Dept;
+  @UI.lineItem: [{ position : 80 }]
+  @UI.identification:[{position:80,label:'Contact'}]
+  Contact;
+  @UI.lineItem: [{ position : 90 }]
+  @UI.identification:[{position:90,label:'Address'}]
+  Address;
+  @UI.lineItem: [{ position : 100 }]
+  @UI.identification:[{position:100,label:'City'}]
+  City;
+  @UI.lineItem: [{ position : 110 }]
+  @UI.identification:[{position:110,label:'Postal Code'}]
+  PostCode;
+  @UI.lineItem: [{ position : 120 }]
+  @UI.identification:[{position:120,label:'Country'}]
+  Country;
+  /* Associations */
+  //    _certifications;
+  //    _module;
+  //    _Skills;
+  //    _Utilizations;;
+
+}

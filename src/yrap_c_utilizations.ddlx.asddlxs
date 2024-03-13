@@ -1,0 +1,33 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo:{typeName:'Utilization',
+typeNamePlural:'Utilizations',
+title:{type:#STANDARD,label:'UtilizationID',value:'Utid'}}
+annotate view YRAP_C_UTILIZATIONS with
+{
+  // UI Identification Facet
+  @UI.facet:[{id:'Utilization',
+  type:#IDENTIFICATION_REFERENCE,
+  purpose:#STANDARD,
+  label:'Utilization Details',
+  position:10}]
+
+  @UI.lineItem: [{ position : 10  }]
+  @UI.identification: [{ position : 10, label : 'UUID' }]
+  Uuid;
+  @UI.lineItem: [{ position : 20  }]
+  @UI.identification: [{ position : 20, label : 'Utilization ID' }]
+  Utid;
+  @UI.hidden: true
+  Eid;
+  @UI.hidden: true
+  Pid;
+  @UI.lineItem: [{ position : 30  }]
+  @UI.identification: [{ position : 30, label : 'Utilization (%)' }]
+  UtilizePer;
+  @UI.lineItem: [{ position : 40  }]
+  @UI.identification: [{ position : 40, label : 'Remarks' }]
+  Remarks;
+  /* Associations */
+  //    _Employee;;
+
+}

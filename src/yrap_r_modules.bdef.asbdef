@@ -1,0 +1,84 @@
+managed implementation in class zbp_rap_r_modules unique;
+strict ( 2 );
+
+define behavior for YRAP_R_MODULES alias Modules
+persistent table yrap_modules
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( numbering : managed, readonly ) Uuid;
+  association _employees { create; }
+  association _projects { create; }
+}
+
+define behavior for YRAP_I_EMPLOYEE alias Employees
+persistent table yrap_employee
+lock dependent by _module
+authorization dependent by _module
+//etag master <field_name>
+{
+  update;
+  delete;
+
+  field ( readonly ) Uuid, Mid;
+  association _module;
+  association _certifications { create; }
+  association _Skills { create; }
+  association _Utilizations { create; }
+}
+
+define behavior for YRAP_I_CERTIFICATIONS alias Certifications
+persistent table yrap_cert
+lock dependent by _Modules
+authorization dependent by _Modules
+//etag master <field_name>
+{
+  update;
+  delete;
+
+  field ( readonly ) Uuid, Eid, Mid;
+  association _Employee;
+  association _Modules;
+}
+
+define behavior for YRAP_I_SKILLS alias Skills
+persistent table yrap_skills
+lock dependent by _Modules
+authorization dependent by _Modules
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Eid, Mid;
+  association _Employee;
+  association _Modules;
+}
+
+define behavior for YRAP_I_UTILIZATIONS alias Utilizations
+persistent table yrap_utilize
+lock dependent by _Modules
+authorization dependent by _Modules
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Eid, Mid;
+  association _Employee;
+  association _Modules;
+}
+
+define behavior for YRAP_I_Projects alias Projects
+persistent table yrap_projects
+lock dependent by _Modules
+authorization dependent by _Modules
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Uuid, Mid;
+  association _Modules;
+}

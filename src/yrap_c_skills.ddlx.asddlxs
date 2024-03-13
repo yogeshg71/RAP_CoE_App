@@ -1,0 +1,40 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo:{typeName:'Skill',
+typeNamePlural:'Skills',
+title:{type:#STANDARD,label:'SkillID',value:'Name'}}
+annotate view YRAP_C_SKILLS with
+{
+
+  // UI Identification Facet
+  @UI.facet:[{id:'Skill',
+  type:#IDENTIFICATION_REFERENCE,
+  purpose:#STANDARD,
+  label:'Skill Details',
+  position:10}]
+
+  @UI.lineItem: [{ position : 10 }]
+  @UI.identification: [{ position: 10, label : 'UUID' }]
+  Uuid;
+  @UI.lineItem: [{ position : 20 }]
+  @UI.identification: [{ position: 20, label : 'Skill ID' }]
+  Sid;
+  @UI.hidden: true
+  Mid;
+  @UI.hidden: true
+  Eid;
+  @UI.lineItem: [{ position : 30 }]
+  @UI.identification: [{ position: 30, label : 'Skill SubID' }]
+  Subid;
+  @UI.lineItem: [{ position : 40 }]
+  @UI.identification: [{ position: 40, label : 'Skill Name' }]
+  Name;
+  @UI.lineItem: [{ position : 50 }]
+  @UI.identification: [{ position: 50, label : 'Skill Description' }]
+  Descr;
+  @UI.lineItem: [{ position : 60 }]
+  @UI.identification: [{ position: 60, label : 'Level' }]
+  Levl;
+  /* Associations */
+  //    _Employee;;
+
+}
